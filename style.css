@@ -1,0 +1,259 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --blue-dark: #062d91;
+  --blue: #087cff;
+  --cyan: #11c5ff;
+  --text: #f5f8ff;
+  --muted: #aebbd6;
+  --card: rgba(8, 18, 45, 0.72);
+  --border: rgba(83, 157, 255, 0.24);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 50% 15%, rgba(0, 149, 255, 0.18), transparent 32%),
+    linear-gradient(135deg, #020611 0%, #04102a 48%, #01050d 100%);
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 20px;
+  position: relative;
+  isolation: isolate;
+}
+
+.background-glow {
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.22;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.glow-one {
+  top: -180px;
+  left: -120px;
+  background: #006eff;
+}
+
+.glow-two {
+  right: -160px;
+  bottom: -180px;
+  background: #00c6ff;
+}
+
+.card {
+  width: min(760px, 100%);
+  padding: 52px 42px 44px;
+  text-align: center;
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  background: var(--card);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.48),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  animation: cardIn 0.7s ease both;
+}
+
+.logo-wrap {
+  width: 180px;
+  height: 140px;
+  margin: 0 auto 18px;
+  display: grid;
+  place-items: center;
+}
+
+.logo {
+  width: 180px;
+  max-height: 140px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 24px rgba(0, 115, 255, 0.28));
+}
+
+.badge {
+  display: inline-block;
+  margin: 6px 0 18px;
+  padding: 7px 13px;
+  border: 1px solid rgba(17, 197, 255, 0.3);
+  border-radius: 999px;
+  color: #7edcff;
+  background: rgba(17, 197, 255, 0.08);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+}
+
+h1 {
+  font-size: clamp(34px, 6vw, 58px);
+  line-height: 1.05;
+  letter-spacing: -2px;
+  margin-bottom: 18px;
+  background: linear-gradient(90deg, #ffffff 5%, #65d8ff 52%, #1785ff 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  max-width: 570px;
+  margin: 0 auto 28px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.url-box {
+  padding: 18px 20px;
+  margin: 0 auto 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(67, 145, 255, 0.24);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.url-label {
+  display: block;
+  margin-bottom: 7px;
+  color: #7e91b5;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.url-box a {
+  color: #52cfff;
+  font-size: clamp(16px, 3vw, 21px);
+  font-weight: 700;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.url-box a:hover {
+  text-decoration: underline;
+}
+
+.visit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 230px;
+  padding: 15px 24px;
+  border-radius: 13px;
+  color: #fff;
+  background: linear-gradient(135deg, #0566ff, #08b9ff);
+  box-shadow: 0 12px 30px rgba(0, 126, 255, 0.3);
+  font-size: 16px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.visit-btn span {
+  font-size: 22px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.visit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 17px 38px rgba(0, 155, 255, 0.4);
+}
+
+.visit-btn:hover span {
+  transform: translateX(4px);
+}
+
+.visit-btn:focus-visible,
+.url-box a:focus-visible {
+  outline: 3px solid rgba(75, 208, 255, 0.6);
+  outline-offset: 4px;
+}
+
+.note {
+  margin-top: 22px;
+  color: #7182a4;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+footer {
+  margin-top: 22px;
+  color: #60708f;
+  font-size: 12px;
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 20px 14px;
+  }
+
+  .card {
+    padding: 38px 20px 32px;
+    border-radius: 22px;
+  }
+
+  .logo-wrap,
+  .logo {
+    width: 145px;
+    height: 115px;
+  }
+
+  h1 {
+    letter-spacing: -1.2px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+
+  .visit-btn {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .card,
+  .visit-btn,
+  .visit-btn span {
+    animation: none;
+    transition: none;
+  }
+}
